@@ -1,0 +1,59 @@
+CREATE DATABASE society_management;
+USE society_management;
+
+-- Admin Table
+CREATE TABLE admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Users Table
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    flat_number VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    mobile_no VARCHAR(15) NOT NULL,
+    family_members INT NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    is_approved BOOLEAN DEFAULT FALSE
+);
+
+-- Notices Table
+CREATE TABLE notices (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Payments Table
+CREATE TABLE IF NOT EXISTS payments (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(100) NOT NULL,
+    flat_number VARCHAR(50) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+);
+
+
+-- Photo Gallery Table
+CREATE TABLE gallery (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    image_path VARCHAR(255) NOT NULL,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert default admin credentials (password is 'admin123', hashed)
+           yala takuu nakassssssssss  INSERT INTO admin (username, password) VALUES ('admin', '$2y$10$GJG3XMPFV9HP1sApZtoEG.SQ5IDZpx6uDClQFrKSO4/72y.ZZmJ5e');
+
+CREATE TABLE IF NOT EXISTS complaints (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    user_name VARCHAR(100) NOT NULL,
+    topic VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    flat_number VARCHAR(20) NOT NULL
+);
