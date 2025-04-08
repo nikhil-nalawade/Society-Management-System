@@ -112,4 +112,4 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-For support or inquiries, please contact the society management committee.
+For any inquiries, feel free to reach out to me at [nalawadenikhil492@gmial.com]
